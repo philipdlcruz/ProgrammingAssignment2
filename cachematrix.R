@@ -5,10 +5,14 @@
 
 makeCacheMatrix <- function(x = matrix()) {
         mi <- NULL
+        set <- function(y) {
+                x <<- y
+                mi <<- NULL
+        }
         get <- function() x
         setmatinv <- function(matinv) mi <<- matinv
         getmatinv <- function() mi
-        list(get = get, setmatinv = setmatinv, getmatinv = getmatinv)
+        list(set = set, get = get, setmatinv = setmatinv, getmatinv = getmatinv)
 }
 
 ## cacheSolve computes the inverse of the special "matrix" returned by
